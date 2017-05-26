@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Ricky Mavlingcar" />
+    <meta name="description" content="Personal Online Portfolio. Built to showcase my projects and detail my interests."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--v Loads Bootstrap stylesheet, Bootstrap, jQuery, font awesome glyphicons stylesheet & flickity responsive carousels stylesheet and js v-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/b08f772e2e.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!--^ Loads Bootstrap stylesheet, Bootstrap, jQuery, font awesome glyphicons stylesheet & flickity responsive carousels stylesheet and js ^-->
+
+    <title>Ricky Mavlingcar - Personal Portfolio</title>
+
+    <!--v My style sheet v-->
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar
+        {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Required for scrollspy feature to function correctly. (allows navbar to change active class when scrolling) It will NOT WORK if position is not set to 'relative' */
+        body
+        {
+            position: relative;
+        }
+
+        .jumbotron
+        {
+            margin-bottom: 0px;;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer
+        {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+
+        /* Class for img in jumbotron, rounds the img and allows text to wrap around the img.*/
+        .rmimg
+        {
+            max-height: 250px;
+            border-radius: 30px;
+            width: 200px;
+            padding: 0px;
+            float: left;
+            margin: -25px 25px 0px 0px;
+        }
+
+        #Projects h4
+        {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .bio
+        {
+            background: #221F1F;
+            color: white
+        }
+        /* Class to change text of resume section as the background colour is the same colour as the default text*/
+        .resume
+        {
+            color: white;
+            background: #333;
+        }
+
+        .project
+        {
+            color: white;
+            background: #2c3e50;
+        }
+
+        .workexpimgs
+        {
+            width: 100%;
+            height: 100px;
+        }
+        .hobby_cars
+        {
+            background: #bf4040;
+            color: black;
+        }
+        .hobby_tabletennis
+        {
+            background: lightgrey;
+            color: black;
+        }
+        
+        .contact
+        {
+            background: #722872;
+            color: white;
+        }
+
+        /* external css: flickity.css */
+        * { box-sizing: border-box; }
+
+        body { font-family: sans-serif; }
+
+        .carousel {
+            background: #333;
+        }
+
+        .carousel img {
+            display: block;
+            height: 200px;
+        }
+
+        .caption {
+            background: #FAFAFA;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .flickity-page-dots { bottom: 10px; }
+
+        @media screen and ( min-width: 768px ) {
+            .carousel img {
+                height: 400px;
+            }
+        }
+
+
+        /*Mobile site css*/
+        @media screen and (max-width:970px)
+        {
+            /* Added padding to h1 tag so that it does not overlap with my image.*/
+            .jumbotron h1
+            {
+                padding: 20px;
+            }
+
+            .rmimg
+            {
+                float: none;
+            }
+
+            .travelIframe iframe
+            {
+                height: 250px;
+            }
+
+            .resume iframe
+            {
+                height: 400px;
+            }
+
+            .contact iframe
+            {
+                height: 450px;
+                width: 100%;
+            }
+
+        }
+    </style>
+    <!--^ My style sheet ^-->
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="80">
+
+<!--v Bootstrap native navbar v-->
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" style="font-size: 22px;" href="#home">Ricky Mavlingcar</a> <!-- style added to overwrite cdn default font of 18px -->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#home"><span class="fa fa-home"></span> Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-user"></span> About Me <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#bio">Bio</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Hobbies</li>
+                        <li><a href="#tabletennis">Table Tennis</a></li>
+                        <li><a href="#travel">Travelling</a></li>
+                        <li><a href="#cars">Cars</a></li>
+                    </ul>
+                </li>
+                <li><a href="#workexp"><span class="fa fa-briefcase"></span> Work Experience</a></li>
+                <li><a href="#Projects"><span class="fa fa-folder-open"></span> Projects</a></li>
+                <li><a href="#resume"><span class="fa fa-newspaper-o"></span> Resume</a></li>
+                <li><a href="#Contact"><span class="fa fa-info-circle"></span> Contact Me</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--^ Bootstrap native navbar ^-->
+
+<!--v Jumbotron for the big intro! v-->
+<div id="home" class="jumbotron">
+    <div class="container text-center">
+        <h1>Welcome!</h1>
+        <img class="rmimg" src="https://farm9.staticflickr.com/8059/29991849805_64ce5d0909_o.jpg" alt="Who is this handsome lad?! The OG?!?">
+        <p>Hello! Welcome to my humble domain! To learn more about me and what I like to do, use the navbar above or scroll down till you find something you like, or not.</p>
+    </div>
+</div>
+<!--^ Jumbotron for the big intro! ^-->
+
+<!--v Begin About Me v-->
+<div id="bio" class="container-fluid bg-3 text-center bio">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <!--v Start of Bio v-->
+            <div class="container-fluid text-center">
+                <h3>About Me</h3>
+                <br>
+                <p>Hello everyone! My name is Ricky Mavlingcar. I am an international student, currently in my senior year studying Information Technology and Systems at the University of Texas at Dallas.
+                I am <a href="https://www.google.com/#q=Portugal" target="_blank"> Portuguese</a> by nationality but was born in <a href="https://www.google.com/#q=Goa%2C+India" target="_blank">Goa, India</a> and raised in <a href="https://www.google.com/#q=Abu+Dhabi%2C+United+Arab+Emirates" target="_blank">Abu Dhabi, United Arab Emirates</a>.
+                My obsession with technology started at an early age. My father owns an I.T. company that offers consultancy, installation and procurement services in the U.A.E. and would always try to teach me about what he and his company did. Over time, I would get more curious and ask more detailed questions related to computing to the point where he simply decided that I needed a computer to go and find answers on my own time. I am passionate about so many topics in my field that I don't even know where to begin! I love learning and tinkering with new technology, especially if I can utilise them in my current projects. My strengths include being a persistent and stubborn developer, and a learner.</p> <!-- In my opinion, my strengths complement each other... At times... Kind of... -->
+                <p>I've dabbled in multiple areas of IT, but if I were to quickly state my favourite topics, it would be as follows: Database Management, Responsive Web Design and Big Data Analytics. I plan on working once I graduate and am actively seeking opportunities where I can demonstrate my skills and learn. I lean more towards the technical side of I.T. since I have a love for both scripting and development. Because of this, I am looking for positions that allow me to work with databases or as a developer. To look at some of my work, scroll down to the projects section.</p>
+                <p>If you've actually read down this far, you're either really interested in me, a friend critiquing my work or probably looking for the video introduction that the entire class had to do. P.S. Quite embarassing...</p>
+                <p></p>
+                <button type="button" class="btn btn-info" style="display: block; margin: 0 auto;" data-toggle="modal" data-target="#myVideo">Click Here to watch</button>
+
+                <!--v Modal for Video Intro v-->
+                <div class="modal fade" id="myVideo" role="dialog">
+                <div class="modal-dialog">
+                    <!--v Modal content v-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" style="text-align: center;">Have Mercy!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/ToTTsNEpBk0" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    <!--^ Modal content ^-->
+                </div>
+            </div>
+                <!--^ Modal for Video Intro ^-->
+
+            </div>
+            <!--^ End of Bio ^-->
+
+            <br>
+            <br>
+            <p>Moving on...</p>
+            <p>I also have hobbies that are not related to my field of study! Here they are, not listed in any particular order: </p>
+            <br>
+
+            <!--v Start Hobby - Table Tennis v-->
+            <div id="tabletennis" class="container-fluid hobby_tabletennis">
+                <br>
+                <h4>Table Tennis</h4>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- Flickity HTML init -->
+                        <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": false, "wrapAround": true }'>
+                            <img src="https://c3.staticflickr.com/6/5576/22789991538_e04d933f3f_k.jpg" name="ttpic1" alt="Divisionals, Fall 2015: Would you look at the grace of that backhand! Brilliant Technique!(No bias whatsoever...) | Photo Credit: Chris B Soliva" />
+                            <img src="https://c5.staticflickr.com/6/5459/22789991868_a23fd12c02_k.jpg" name="ttpic4" alt="Divisionals, Fall 2015: I'm Ready! Where's the ball though? | Photo Credit: Chris B Soliva"/>
+                            <img src="https://c6.staticflickr.com/6/5624/30880602941_a7ef96c684_k.jpg" name="ttpic6" alt="Divisionals, Fall 2015: Still waiting for that ball... | Photo Credit: Chris B Soliva"/>
+                            <img src="https://c5.staticflickr.com/6/5343/22789991948_1993a25f50_k.jpg" name="ttpic5" alt="Divisionals, Fall 2015: UT Dallas Table Tennis Club Group Photo | Photo Credit: Kim Luu"/>
+                            <img src="https://c1.staticflickr.com/6/5329/22789991768_631ec81432_k.jpg" name="ttpic3" alt="Divisionals, Spring 2016: Group Photo of the Spring 2016 UT Dallas B team. | Photo Credit: Kim Luu"/>
+                            <img src="https://c5.staticflickr.com/6/5592/22789991668_6a68815d20_k.jpg" name="ttpic2" alt="Divisionals, Spring 2016: Just casual gameplay. And in case you were wondering, yes, I did return that. | Photo Credit: Kim Luu"/>
+                        </div>
+                        <p class="caption">&nbsp;</p>
+                        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+                        <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+                        <script>
+                            // external js: flickity.pkgd.js
+
+                            var $carousel = $('.carousel').flickity({
+                                cellSelector: 'img',
+                                imagesLoaded: true,
+                                percentPosition: false,
+                                wrapAround: true
+                            });
+                            var $caption = $('.caption');
+                            // Flickity instance
+                            var flkty = $carousel.data('flickity');
+
+                            $carousel.on( 'select.flickity', function() {
+                                // set image caption using img's alt
+                                $caption.text( flkty.selectedElement.alt )
+                            });
+                        </script>
+                        <!-- Flickity HTML init -->
+                    </div>
+                    <div class="col-sm-6 text-left">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p>I love this sport! I've been hooked since I was first introduced to it in sixth grade.  My style of play has definitely evolved over time. When starting out, I would tend to be more aggressive and loop constantly in order to apply pressure and win a point. Over time, I got more reserved with my loops in an attempt to play more efficiently. I would classify my current play style to be most similar to modern defense, which basically means that I will naturally try to bait the opponent into conceding a point by defending and waiting for an opening to capitalise on.</p>
+                                <p>Nowadays, in addition to playing recreationally, I also enjoy playing table tennis for the UT Dallas table tennis club and have taken part in various tournaments while studying full time. I consider myself to be a somewhat casual player since I play the game more for fun than anything else. I'm willing to play against anyone who's up for it. You can usually find me playing table tennis on Thursday's at the table tennis club. If you would like to play some table tennis and are a student at the University of Texas at Dallas, I encourage you to come to our club meetings. Everyone is welcome, regardless of skill level. If you are looking to learn, the club is a great resource and we will critique your form and help you practice.</p>
+                                <p>UT Dallas Table Tennis Club Timings: Monday's and Thursday's from 7:00pm to 10:00pm at the Auxilliary Gym located in the Activities Centre.</p>
+                            </div>
+                            <div class="col-sm-12">
+                                <p>My current setup:</p>
+                                <p>Forehand: DHS Hurricane 2.1mm [Red]</p>
+                                <p>Backhand: Stiga Airoc S 1.9mm [Black]</p>
+                                <p>Blade: Yasaka Extra Offensive (Ma Lin Edition)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+            </div>
+            <!--^ End Hobby - Table Tennis ^-->
+
+            <!--v Start Hobby - Travel v-->
+            <div id="travel" class="container-fluid travelIframe">
+                <br>
+                <h4><p>Travelling</p></h4>
+                <br>
+                <p>I've been fortunate enough to frequently travel to many places. Wherever I go, I usually aim to explore the main attractions and sample the local cuisine. I would say that the best part about travelling is how easily you can occupy yourself. By that, I mean that it's very easy to keep yourself absorbed for weeks in a new destination. Unfortunately, the last thing I think about is taking a picture of the place. However, instead of pictures, here's a visualisation of all the places I've been to and all the places I plan on visiting in the future. </p>
+                <p>This visualisation is made using <a href="https://www.google.com/search?q=Google+Fusion+Tables" target="_blank">Google Fusion Tables</a>: </p>
+                <p>Click on any of the tags for more detailed info.
+                    <span class="text-primary">Blue</span> tags mean that this place is essentially home to me.
+                    <span class="text-success">Green</span> tags mean that I have visited this place.
+                    <span class="text-danger">Red</span> tags mean that I plan on visiting this place in the future.</p>
+                <iframe width="85%" height="750" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col0+from+1upBWiaqSP6DW7P8GeoiZCwQU3gGcACO-quufNhA4&amp;viz=MAP&amp;h=false&amp;lat=23.119867690755825&amp;lng=23.49967074999995&amp;t=1&amp;z=3&amp;l=col0&amp;y=2&amp;tmplt=3&amp;hml=GEOCODABLE"></iframe>
+                <br>
+            </div>
+            <!--^ End Hobby - Travel ^-->
+
+            <br>
+            <br>
+            <br>
+
+            <!--v Start Hobby - Cars v-->
+            <div id="cars" class="container-fluid hobby_cars">
+                <br>
+                <h4>Cars</h4>
+                <br>
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <p>Growing up in the U.A.E. gave me the opportunity to see, and even drive, many exotic cars. I have developed a deep appreciation for the beauty and the power that some of these cars have. Unfortunately, the driving age in the U.A.E. is 18 so most of my driving has been limited to a track or drag strip.</p>
+                        <p>This year (2016), I finally purchased my first vehicle in the United States. It's a 2016 Ford Focus ST (ST1). Everything is currently stock but I will probably mod the car at some point in the future. Take a gander at some pictures of my beautiful beast.</p>
+                        <ul>
+                            Car Parts Wish List:
+                            <li>Rousch Cold Air Intake</li>
+                            <li>Boomba Short Throw Shifter w/ steel bushings</li>
+                            <li>Levels Front-Mounted Intercooler</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- Flickity HTML init -->
+                        <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": false, "wrapAround": true }'>
+                            <img src="//c4.staticflickr.com/6/5538/25332929179_c7ace2062d_c.jpg" alt="front"/>
+                            <img src="//c8.staticflickr.com/6/5820/25332931679_9a99b89982_c.jpg" alt="back"/>
+                            <img src="//c3.staticflickr.com/6/5331/30667174810_3bb8707182_c.jpg" alt="enginebay1"/>
+                            <img src="//c3.staticflickr.com/6/5750/22789985858_7b0ccfe076_c.jpg" alt="enginebay2"/>
+                            <img src="//c7.staticflickr.com/6/5607/22789989878_ba681a174f_c.jpg" alt="backwheel"/>
+                            <img src="//c3.staticflickr.com/6/5661/30852409642_f31b91d430_c.jpg" alt="doorsill"/>
+                        </div>
+                        <!-- Flickity HTML init -->
+                    </div>
+                </div>
+                <br>
+            </div>
+            <!--^ End Hobby - Cars ^-->
+
+            <!--v Start Work Experience v-->
+            <div id="workexp" class="container-fluid text-left">
+                <br>
+                <h3 class="text-center">Work Experience</h3>
+                <br>
+                <div class="row">
+                    <div class="col-sm-4"><img src="https://c8.staticflickr.com/6/5687/31211929951_bf97100e61_b.jpg" alt="City Computer Company Banner" class="workexpimgs"></div>
+                    <div class="col-sm-8"><p>In 2010, I was given the opportunity to pursue a month long internship at City Computer Company. My experience at this company changed my perspective and opinions of I.T. as my role as an intern at the company allowed me to experience many different roles. After a week of training which was done to help my superiors gauge my level of competency, I was deployed with certified technicians to observe and assist with installing and updating various software and hardware components for clients. After a while, I was also given the responsibility of performing routine P.C. maintenance and backups for employees, and providing help-desk style technical support for the staff. Most of my technical support calls usually involved guiding an employee through various troubleshooting methods to resolve their issues.</p></div>
+                </div>
+            </div>
+            <!--^ End Work Experience ^-->
+        </div>
+    </div>
+
+    <br>
+</div>
+
+<!--^ End About Me ^-->
+
+<!--v Begin Projects v-->
+<div id="Projects" class="container-fluid bg-3 text-center project">
+    <h3>Projects</h3>
+    <div class="row">
+        <h4>HIIT Me Up - Mobile Web Application Development - Spring 2016</h4>
+        <div class="col-sm-6">
+            <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": false, "wrapAround": true }'>
+                <img src="https://c1.staticflickr.com/6/5451/30955844072_c92c7c249e_h.jpg" alt="home page" />
+            </div>
+        </div>
+        <div class="col-sm-6 text-left">
+            <p>HIIT Me Up is a workout management mobile web app that my group and I designed as part of a semester long group project for Mobile Web Application Development. The app was designed using HTML5, CSS3, jQuery, PHP and the jQuery Mobile Framework. We used XAMPP as the testing environment. This project was challenging as it was my first proper mobile web application project and we were expected to learn about CSS, PHP and jQuery while designing a mobile web app over the semester. I created the database and mock data by creating a script in SQL, created the forms for user input and navigation bars, and worked on all back-end scripting that involved connecting with our database. </p>
+            <p>If you want to learn more about this project, you can view our final presentation slides <a href="https://docs.google.com/presentation/d/1IMuy9QXS1U3ZbHe1rknNvF0pd0CCJaG2qk5vmUx1QeM/edit?usp=sharing" target="_blank">here</a> or contact me by submitting a form on the contact page. I'd be happy to answer any of your questions. The slides show the screenshots of our app on a mobile device. While the app could still use a lot of work, it was a project that allowed us to learn and apply basic mobile web design elements that are necessary for a successful mobile web app.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <h4>Diverging Diamond Intersection(DDI) Prototype - Sponsored by AT&T - ITSS Capstone - Fall 2016</h4>
+        <div class="col-sm-6 text-left">
+            <p>The DDI Prototype is a web app designed for my capstone project. AT&T have partnered with the Texas Department of Transportation and have tasked this year's capstone class with creating an application that is able to utilise traffic data provided by the Texas Department of Transportation (TxDOT) and generate a list of candidate intersections that would benefit from implementing the DDI model.</p>
+            <p>This project is the hardest one I've ever attempted to complete. It presented some unique challenges and introduced me to many new ideas and methodologies. The class was split into four groups of 7 members and given the semester to design a working prototype. There was limited oversight and each group was only given a small dataset and a project scope. We were left to determine the best way to implement and realise the project goals given to us.</p>
+            <p>We designed the prototype based on the skills of each individual member of the group and decided that our prototype would be a web application. The prototype was designed using HTML5, CSS3, JavaScript, jQuery, Google Sheets, Google Fusion Tables and Google Charts.</p>
+            <p>To learn more about this project, you can view the final presentation slides that we used when detailing our prototype to AT&T <a href="https://docs.google.com/presentation/d/1uo7uv8ioNe8pP7U7xC01m5LMfRq00S0TkqszguXHRlM/edit?usp=sharing" target="_blank">here</a>.</p>
+        </div>
+        <div class="col-sm-6">
+            <div class="carousel" data-flickity='{ "imagesLoaded": true, "percentPosition": false, "wrapAround": true }'>
+                <img src="https://c7.staticflickr.com/6/5677/31290608286_42c32fb9ee_b.jpg" alt="home page" />
+                <img src="https://c6.staticflickr.com/6/5338/31326903085_c3074bb88a_b.jpg" alt="rankings page" />
+                <img src="https://c2.staticflickr.com/6/5765/31326903145_a598318b30_b.jpg" alt="credits page"/>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>This site! (rickymavlingcar.com) - Advanced Business Communication - Fall 2016</h4>
+            <p>This site is the result of an Advanced Business Communications assignment. The task was to create an online portfolio that showcased our skills and allow us to differentiate ourselves from our peers to employers by maintaining our own site online. You can view the site's source code on <a href="codepen.io/rmavlingcar/pen/mAYRNv/">codepen</a>. I tried hard to incorporate everything that I've learnt about web development so far into this site. This project allowed me to think critically about how I wanted to present myself and my work.</p>
+        </div>
+    </div>
+    <br>
+</div>
+<!--^ End Projects ^-->
+
+<!--v Begin Resume v-->
+<div id="resume" class="container-fluid bg-3 text-center resume" >
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="container-fluid text-center">
+                <h3>Resume</h3>
+                <br>
+                <iframe src="https://drive.google.com/file/d/0B8CrwecvX6usNkJMUjdFRHdSbDg/preview" width="60%" height="900"></iframe>
+                <br>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+<!--^ End Resume ^-->
+
+<!--v Begin Contact Me v-->
+<div id="Contact" class="container-fluid bg-3 text-center contact">
+    <div class="row">
+        <h3>Contact Me</h3>
+        <br>
+        <div class="col-lg-4">
+            <div class="container-fluid text-left">
+                <p>Want to get in touch with me? Be it to request more info about myself, to ask for more details about a particular project, tips on how to solve your web app issues/bugs, random questions about the universe and the meaning of life, or even if only for some casual football banter. Feel free to drop me a line anytime. I promise to reply as soon as possible.</p>
+                <p>You can also find me on <a href="https://linkedin.com/in/rickymavlingcar" target="_blank" alt="LinkedIn"><span alt="LinkedIn" class="fa fa-linkedin-square fa-3x"></span></a> <a href="https://github.com/rmavlingcar" target="_blank" alt="Github"><span class="fa fa-github fa-3x" alt="Github"></span></a> <a href="https://facebook.com/rickymavlingcar" target="_blank" alt="Facebook"><span class="fa fa-facebook-square fa-3x" alt="Facebook"></span></a></p>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="container-fluid text-center">
+                <form method="POST" action="https://formspree.io/rickymavlingcar@live.com">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input name="name" type="text" class="form-control" placeholder="Name *" id="name" required="" data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input name="email" type="email" class="form-control" placeholder="Email *" id="email" required="" data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input name="phone" type="tel" class="form-control" placeholder="Phone" id="phone" optional="" data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" class="form-control" placeholder="Message/Comments *" id="message" required="" data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-sm-12 text-center">
+                            <div id="success"></div>
+                            <button type="submit" class="btn btn-xl btn-primary">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<!--^ End Contact Me ^-->
+
+<!--v Smooth Scrolling jQuery script v-->
+<script src="cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    $('a[href^="#"]').on('click', function(event) {
+
+        var target = $(this.getAttribute('href'));
+
+        if( target.length ) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+
+    });
+</script>
+<!--^ Smooth Scrolling jQuery script ^-->
+
+<!--v Begin Footer v-->
+<footer class="container-fluid text-center">
+    <p><i>Imagine a fearsomely comprehensive disclaimer of author liability. Now fear, comprehensively.</i> - Ironically, not my own words... Taken shamelessly from the <a href="http://paste.lisp.org/" target="_blank">lisppaste disclaimer</a>.</p>
+    <p>This website is created by Ricky Mavlingcar using HTML <span class="fa fa-html5" aria-hidden="true"></span>, CSS <span class="fa fa-css3" aria-hidden="true"></span> and Bootstrap. Icons sourced from <a href="http://fontawesome.io/">font awesome</a>. Responsive carousels made using <a href="http://flickity.metafizzy.co/">flickity</a>.</p>
+</footer>
+<!--^ End Footer ^-->
+
+</body>
+</html>
