@@ -1,0 +1,146 @@
+
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar
+        {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Required for scrollspy feature to function correctly. (allows navbar to change active class when scrolling) It will NOT WORK if position is not set to 'relative' */
+        body
+        {
+            position: relative;
+        }
+
+        .jumbotron
+        {
+            margin-bottom: 0px;;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer
+        {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+
+        /* Class for img in jumbotron, rounds the img and allows text to wrap around the img.*/
+        .rmimg
+        {
+            max-height: 250px;
+            border-radius: 30px;
+            width: 200px;
+            padding: 0px;
+            float: left;
+            margin: -25px 25px 0px 0px;
+        }
+
+        #Projects h4
+        {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .bio
+        {
+            background: #221F1F;
+            color: white
+        }
+        /* Class to change text of resume section as the background colour is the same colour as the default text*/
+        .resume
+        {
+            color: white;
+            background: #333;
+        }
+
+        .project
+        {
+            color: white;
+            background: #2c3e50;
+        }
+
+        .workexpimgs
+        {
+            width: 100%;
+            height: 100px;
+        }
+        .hobby_cars
+        {
+            background: #bf4040;
+            color: black;
+        }
+        .hobby_tabletennis
+        {
+            background: lightgrey;
+            color: black;
+        }
+        
+        .contact
+        {
+            background: #722872;
+            color: white;
+        }
+
+        /* external css: flickity.css */
+        * { box-sizing: border-box; }
+
+        body { font-family: sans-serif; }
+
+        .carousel {
+            background: #333;
+        }
+
+        .carousel img {
+            display: block;
+            height: 200px;
+        }
+
+        .caption {
+            background: #FAFAFA;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .flickity-page-dots { bottom: 10px; }
+
+        @media screen and ( min-width: 768px ) {
+            .carousel img {
+                height: 400px;
+            }
+        }
+
+
+        /*Mobile site css*/
+        @media screen and (max-width:970px)
+        {
+            /* Added padding to h1 tag so that it does not overlap with my image.*/
+            .jumbotron h1
+            {
+                padding: 20px;
+            }
+
+            .rmimg
+            {
+                float: none;
+            }
+
+            .travelIframe iframe
+            {
+                height: 250px;
+            }
+
+            .resume iframe
+            {
+                height: 400px;
+            }
+
+            .contact iframe
+            {
+                height: 450px;
+                width: 100%;
+            }
+
+        }
+
+   
